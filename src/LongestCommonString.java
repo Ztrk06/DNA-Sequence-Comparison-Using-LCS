@@ -18,4 +18,33 @@ public class LongestCommonString {
         }
        return length;
     }
+
+    public static char[][] LCS_str(String s1, String s2, int[][] len) {
+        int len1 = s1.length();
+        int len2 = s2.length();
+
+        char[][] str = new char[len1][len2];
+
+        for(int i = 1; i < len1; i++){
+            for(int j = 1; j < len2; j++){
+                if(s1.charAt(i) == s2.charAt(j)) str[i][j] = 'D';
+                else if(len[i-1][j] > len[i][j-1]) str[i][j] = 'U';
+                else str[i][j] = 'L';
+            }
+        }
+        return str;
+    }
+
+    public static void printLCS(char[][] LCS, String X, int i, int j) {
+
+        if(i==0 && j==0) return;
+        if(LCS[i][j]=='D'){
+            printLCS(LCS,X,i-1,j-1);
+            System.out.print(X.charAt(i));
+        }
+        else if(LCS[i][j]=='U') printLCS(LCS,X,i-1,j);
+        else if(LCS[i][j]=='L')printLCS(LCS,X,i,j-1);
+
+    }
+
 }
