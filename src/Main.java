@@ -34,7 +34,7 @@ public class Main {
 
         /* TASK 5 */
         LongestCommonString.print5Subsequence(b,homosapiens);
-        System.out.println();
+        System.out.println("-");
 
 
         similarity(homosapiens,chimpanzee);
