@@ -5,7 +5,7 @@ import java.io.IOException;
 public class FileOperations {
 
     public static String loadTxtAndMerge(String path){
-        String merged_string = "";
+        StringBuilder merged_string = new StringBuilder();
 
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(path))) {
 
@@ -14,14 +14,14 @@ public class FileOperations {
             while ((line = bufferedReader.readLine()) != null) {
 
                 if (!line.isEmpty()){
-                    merged_string = merged_string + line;
+                    merged_string.append(line);
                 }
             }
         } catch (IOException e) {
             System.out.println("Error while reading file !" + e.getMessage());
             e.printStackTrace();
         }
-        return merged_string;
+        return merged_string.toString();
     }
 
 }
