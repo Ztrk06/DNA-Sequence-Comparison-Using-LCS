@@ -1,5 +1,9 @@
+import java.util.Random;
 public class LongestCommonString {
 
+    static Random random = new Random();
+
+    /* TASK 3 */
     public static int[][] LCS_len(String s1, String s2) {
         int len1 = s1.length();
         int len2 = s2.length();
@@ -46,5 +50,20 @@ public class LongestCommonString {
         else if(LCS[i][j]=='L')printLCS(LCS,X,i,j-1);
 
     }
+
+    /* TASK 5 */
+    public static void print5Subsequence(char[][] LCS, String X) {
+        int i = LCS.length-1;
+        int j = LCS[0].length-1;
+        for(int k = 0; k < 5; k++){
+            int randomnum = random.nextInt(4000);
+            int randomnum2 = random.nextInt(4000);
+            printLCS(LCS,X,i-randomnum,j-randomnum2);
+            System.out.println();
+        }
+
+    }
+
+
 
 }
